@@ -11,6 +11,8 @@ self.addEventListener('install', event => {
 /* Serve cached content when offline */
 self.addEventListener('fetch', event => {
 	event.respondWith(
-		caches.match(e.request).then(response => response || fetch(e.request))
+		caches
+			.match(event.request)
+			.then(response => response || fetch(event.request))
 	)
 })
