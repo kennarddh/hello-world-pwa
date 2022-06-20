@@ -5,3 +5,11 @@ window.addEventListener('load', () => {
 		navigator.serviceWorker.register('./sw.js')
 	}
 })
+
+document.getElementById('notification').addEventListener('click', () => {
+	Notification.requestPermission().then(result => {
+		if (result === 'granted') {
+			new Notification('Hello!', { body: 'Heloo world!' })
+		}
+	})
+})
